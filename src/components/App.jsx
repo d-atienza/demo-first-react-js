@@ -39,20 +39,23 @@ function MyHeader() {
 
 
 // challenge #2
-// const fruits = ["apple", "banana", "carrot"];
 
-// function FruitsList(fruits) {
-//     const listItems = fruits.map(fruit =>
-        
-        
-//         )
+function FruitsList() {
+    const fruits = [{type: "apple"}, {type: "apple"}, {type: "banana"}, {type: "carrot"}];
 
-//     return (
-//         <header>
-//             <h1>Hello</h1>
-//         </header>
-//     );
-// }
+    const listItems = fruits.map((fruit, ix) =>
+        <p key={ix}>
+        <b>{fruit.type + ', '}</b>
+        </p>
+        )
+
+    return (
+        <header>
+            <h1>cats</h1>
+            {listItems}
+        </header>
+    );
+}
 
 //functions only take one argument in react
 // even if there's multiple bits, it'll be compressed into a singular object and passed through
@@ -64,6 +67,8 @@ export default function App() {
             <Greeting name="Dani" />
             <Greeting name="Bob" />
             <Greeting name="Huss" />
+            <FruitsList />
+            <FruitsList />
             <FruitsList />
             <Sum num1={100} num2={2010} />
             <Sum num1={39} num2={3} />
