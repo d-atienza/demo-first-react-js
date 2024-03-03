@@ -17,7 +17,16 @@ function RandomColour(props) {
     return <p><font color={props.colour}>{props.colour}</font></p>
 }
 
-//
+//conditional statement
+function DiceRoll() {
+    const dice = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const index = Math.floor(Math.random() * dice.length);
+    if(dice[index] % 2 === 0) {
+        return <h5>{dice[index]} means even stevens</h5>
+    } else {
+        return <h5>{dice[index]} means oddball</h5>
+    }
+}
 
 
 //display episode details
@@ -64,6 +73,7 @@ function MyHeader() {
 function FruitsList() {
     const fruits = [{type: "apple"}, {type: "apple"}, {type: "banana"}, {type: "carrot"}];
 
+    //sometimes needs a unique p key when mapping
     const listItems = fruits.map((fruit, ix) =>
         <p key={ix}>
         <b>{fruit.type + ', '}</b>
@@ -72,7 +82,7 @@ function FruitsList() {
 
     return (
         <header>
-            <h1>cats</h1>
+            <h1>fruity list</h1>
             {listItems}
         </header>
     );
@@ -88,15 +98,23 @@ export default function App() {
             <Greeting name="Dani" />
             <Greeting name="Bob" />
             <Greeting name="Huss" />
+            <div>
             <FruitsList />
-            <FruitsList />
-            <FruitsList />
+            </div>
+            <div>
+            <h4>DICE STUFF</h4>
+            <DiceRoll/>
+            </div>
+            <div>
             <RandomColour colour="red"/>
             <RandomColour colour="magenta"/>
-            <Sum num1={100} num2={2010} label/>
+            </div>
+            <Sum num1={100} num2={2010}/>
             <Sum num1={39} num2={3} />
+            <div>
             <TVEpisode episodeData={episodes[0]} />
             <TVEpisode episodeData={episodes[1]} />
+            </div>
             <Footer />
         </div>
 
