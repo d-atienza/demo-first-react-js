@@ -12,7 +12,15 @@ function Sum({ num1, num2 }) {
     );
 }
 
+//text colour generator based on props input
+function RandomColour(props) {
+    return <p><font color={props.colour}>{props.colour}</font></p>
+}
 
+//
+
+
+//display episode details
 function TVEpisode(props) {
     const newSummary = removePTags(props.episodeData)
 
@@ -83,6 +91,8 @@ export default function App() {
             <FruitsList />
             <FruitsList />
             <FruitsList />
+            <RandomColour colour="red"/>
+            <RandomColour colour="magenta"/>
             <Sum num1={100} num2={2010} label/>
             <Sum num1={39} num2={3} />
             <TVEpisode episodeData={episodes[0]} />
