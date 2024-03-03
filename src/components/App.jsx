@@ -1,26 +1,17 @@
 import episodes from "../data/episodes.json";
+import { Greeting } from "./Greeting";
 
-function Greeting({ name }) {
-    return <h2>Hello, {name}</h2>;
-}
-
-function Sum({ num1, num2 }) {
-    return (
-        <p>
-            {num1} + {num2} = {num1 + num2}
-        </p>
-    );
-}
 
 //text colour generator based on props input
 function RandomColour(props) {
     return <p><font color={props.colour}>{props.colour}</font></p>
 }
 
-//conditional statement
+//dice roll conditional statement
 function DiceRoll() {
     const dice = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const index = Math.floor(Math.random() * dice.length);
+
     if(dice[index] % 2 === 0) {
         return <h5>{dice[index]} means even stevens</h5>
     } else {
@@ -31,6 +22,7 @@ function DiceRoll() {
 
 //display episode details
 function TVEpisode(props) {
+    console.log(props)
     const newSummary = removePTags(props.episodeData)
 
     return (
@@ -94,6 +86,10 @@ function FruitsList() {
 export default function App() {
     return (
         <div>
+            {/* <div>
+            <TVEpisodesList episodeData = {[episodes]}/>
+            </div> */}
+
             <MyHeader />
             <Greeting name="Dani" />
             <Greeting name="Bob" />
@@ -109,8 +105,6 @@ export default function App() {
             <RandomColour colour="red"/>
             <RandomColour colour="magenta"/>
             </div>
-            <Sum num1={100} num2={2010}/>
-            <Sum num1={39} num2={3} />
             <div>
             <TVEpisode episodeData={episodes[0]} />
             <TVEpisode episodeData={episodes[1]} />
