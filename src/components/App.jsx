@@ -12,13 +12,26 @@ function Sum({ num1, num2 }) {
     );
 }
 
+
 function TVEpisode(props) {
+    const newSummary = removePTags(props.episodeData)
+
     return (
         <div>
             <h2>{props.episodeData.name}</h2>
+            <img src={props.episodeData.image.medium} className="App-logo" alt="episode-image" />
+            <p>{newSummary}</p>
         </div>
     );
 }
+
+//cleans up the episode summary
+function removePTags(episode) {
+    const newSummary = episode.summary.replace(/<\/?p>/gi, "");
+    return newSummary;
+}
+
+
 
 function Footer() {
     return (
@@ -70,7 +83,7 @@ export default function App() {
             <FruitsList />
             <FruitsList />
             <FruitsList />
-            <Sum num1={100} num2={2010} />
+            <Sum num1={100} num2={2010} label/>
             <Sum num1={39} num2={3} />
             <TVEpisode episodeData={episodes[0]} />
             <TVEpisode episodeData={episodes[1]} />
