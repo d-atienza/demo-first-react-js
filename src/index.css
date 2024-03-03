@@ -6,6 +6,10 @@
     border: 4px dashed lime;
 }
 
+.counterNum {
+    font-size: 10rem;
+}
+
 div {
     padding: 1rem;
     border: 2px dashed blue

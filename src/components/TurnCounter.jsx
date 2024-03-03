@@ -22,7 +22,9 @@ export default function TurnCounter() {
       <p>
         <button onClick={() => handleIncrement("decrease")}> decrease </button>
       </p>
-      <p>Current turn: {currentTurn}</p>
+      <p>
+        Current turn: <div className="counterNum">{currentTurn}</div>
+      </p>
       <p>
         <button onClick={() => handleIncrement("increase")}> increase </button>
       </p>
