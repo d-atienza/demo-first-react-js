@@ -1,5 +1,6 @@
 import episodes from "../data/episodes.json";
 import { Greeting } from "./Greeting";
+import TurnCounter from "./TurnCounter";
 
 
 //text colour generator based on props input
@@ -96,6 +97,9 @@ export default function App() {
             <Greeting name="Huss" />
             <div>
             <FruitsList />
+            </div>
+            <div>
+            <TurnCounter />
             </div>
             <div>
             <h4>DICE STUFF</h4>
