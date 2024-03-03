@@ -5,16 +5,26 @@ export default function TurnCounter() {
   const currentTurn = result[0];
   const setTurnValue = result[1];
 
-  function handleIncrement() {
+  function handleIncrement(outcome) {
     console.log("increment clicked");
-    setTurnValue(currentTurn + 1);
+
+    if (outcome == "decrease" && currentTurn > 0) {
+      setTurnValue(currentTurn - 1);
+    } else if (outcome == "decrease" && currentTurn === 0) {
+      return alert("counter already set to 0!");
+    } else if (outcome == "increase") {
+      setTurnValue(currentTurn + 1);
+    }
   }
 
   return (
     <div>
+      <p>
+        <button onClick={() => handleIncrement("decrease")}> decrease </button>
+      </p>
       <p>Current turn: {currentTurn}</p>
       <p>
-        <button onClick={handleIncrement}> increment </button>
+        <button onClick={() => handleIncrement("increase")}> increase </button>
       </p>
     </div>
   );
