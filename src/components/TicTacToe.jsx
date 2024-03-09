@@ -2,19 +2,14 @@ import { useState } from "react";
 
 export default function TicTacToe() {
   console.log("this rendered again", new Date());
-  const initialCellDataArray = [
-    { id: 1, side: "back" },
-    { id: 2, side: "back" },
-    { id: 3, side: "back" },
-    { id: 4, side: "front" },
-    { id: 5, side: "back" },
-    { id: 6, side: "front" },
-    { id: 7, side: "back" },
-    { id: 8, side: "back" },
-    { id: 9, side: "back" },
-  ];
+  const initialCellDataArray = createInitialCellDataArray();
 
   const [cellDataArray, setCellDataArray] = useState(initialCellDataArray);
+
+  function handleCellClicked(idOfCellClicked) {
+    const newArray = toggleCell(idOfCellClicked, cellDataArray);
+    setCellDataArray(newArray);
+  }
 
   const arrayOfCellElements = cellDataArray.map((food) => {
     if (food.side == "back") {
@@ -22,7 +17,7 @@ export default function TicTacToe() {
         <div
           className="cell"
           key={food.id}
-          onClick={() => console.log("pizza")}
+          onClick={() => handleCellClicked(food.id)}
         >
           🍕
         </div>
@@ -32,7 +27,7 @@ export default function TicTacToe() {
         <div
           className="cell"
           key={food.id}
-          onClick={() => console.log("burger")}
+          onClick={() => handleCellClicked(food.id)}
         >
           🍔
         </div>
@@ -41,17 +36,7 @@ export default function TicTacToe() {
   });
 
   function resetGame() {
-    const newCellDataArray = [
-      { id: 1, side: "back" },
-      { id: 2, side: "back" },
-      { id: 3, side: "back" },
-      { id: 4, side: "back" },
-      { id: 5, side: "back" },
-      { id: 6, side: "back" },
-      { id: 7, side: "back" },
-      { id: 8, side: "back" },
-      { id: 9, side: "back" },
-    ];
+    const newCellDataArray = createInitialCellDataArray();
 
     setCellDataArray(newCellDataArray);
   }
@@ -62,4 +47,34 @@ export default function TicTacToe() {
       <button onClick={resetGame}>reset</button>
     </div>
   );
+}
+
+function createInitialCellDataArray() {
+  return [
+    { id: 1, side: "back" },
+    { id: 2, side: "back" },
+    { id: 3, side: "back" },
+    { id: 4, side: "back" },
+    { id: 5, side: "back" },
+    { id: 6, side: "back" },
+    { id: 7, side: "back" },
+    { id: 8, side: "back" },
+    { id: 9, side: "back" },
+  ];
+}
+
+function toggleCell(targetCellID, inputArray) {
+  const newArray = inputArray.map((obj) => {
+    if (obj.id === targetCellID) {
+      return { ...obj, side: getReverseSide(obj.side) };
+    } else {
+      return { ...obj };
+    }
+  });
+
+  return newArray;
+}
+
+function getReverseSide(side) {
+  return side === "front" ? "back" : "front";
 }
