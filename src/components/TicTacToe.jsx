@@ -1,5 +1,7 @@
+import { useState } from "react";
+
 export default function TicTacToe() {
-  const data = [
+  const initialCellDataArray = [
     { id: 1, side: "back" },
     { id: 2, side: "back" },
     { id: 3, side: "back" },
@@ -8,10 +10,12 @@ export default function TicTacToe() {
     { id: 6, side: "front" },
     { id: 7, side: "back" },
     { id: 8, side: "back" },
-    { id: 9, side: "front" },
+    { id: 9, side: "back" },
   ];
 
-  const arrayOfCells = data.map((food) => {
+  const [cellDataArray, setCellDataArray] = useState(initialCellDataArray);
+
+  const arrayOfCellElements = cellDataArray.map((food) => {
     if (food.side == "back") {
       return (
         <div
@@ -35,5 +39,10 @@ export default function TicTacToe() {
     }
   });
 
-  return <div className="gameGrid">{arrayOfCells}</div>;
+  return (
+    <div>
+      <div className="gameGrid">{arrayOfCellElements}</div>
+      <button>reset</button>
+    </div>
+  );
 }

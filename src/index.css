@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .weird {
@@ -18,8 +20,8 @@ div {
 .gameGrid {
     background: orange;
     outline: 2px solid dodgerblue;
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -29,4 +31,11 @@ div {
     font-size: 6rem;
     display: grid;
     place-items: center;
+}
+
+button {
+    font: inherit;
+    font-size: 2rem;
+    padding: 1rem;
+    margin-top: 1rem;
 }
