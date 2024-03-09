@@ -14,3 +14,19 @@ div {
     padding: 1rem;
     border: 2px dashed blue
 }
+
+.gameGrid {
+    background: orange;
+    outline: 2px solid dodgerblue;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.cell {
+    background-color: skyblue;
+    outline: 2px solid tomato;
+    font-size: 6rem;
+    display: grid;
+    place-items: center;
+}

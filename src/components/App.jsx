@@ -2,6 +2,7 @@ import episodes from "../data/episodes.json";
 import { Greeting } from "./Greeting";
 import TurnCounter from "./TurnCounter";
 import DiceRoll from "./DiceRoll";
+import TicTacToe from "./TicTacToe";
 
 //text colour generator based on props input
 function RandomColour(props) {
@@ -112,6 +113,9 @@ export default function App() {
         <TVEpisode episodeData={episodes[1]} />
       </div>
       <Footer />
+      <br></br>
+      <br></br>
+      <TicTacToe />
     </div>
   );
 }
