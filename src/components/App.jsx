@@ -2,7 +2,7 @@ import episodes from "../data/episodes.json";
 import { Greeting } from "./Greeting";
 import TurnCounter from "./TurnCounter";
 import DiceRoll from "./DiceRoll";
-import TicTacToe from "./TicTacToe";
+//import TicTacToe from "./TicTacToe";
 
 //text colour generator based on props input
 function RandomColour(props) {
@@ -115,7 +115,7 @@ export default function App() {
       <Footer />
       <br></br>
       <br></br>
-      <TicTacToe />
+      {/* <TicTacToe /> */}
     </div>
   );
 }
